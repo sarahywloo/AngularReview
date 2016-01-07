@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="AngularReview">
+<head>
+    <title></title>
+    @Styles.Render("~/Content/css")
+    <style>
+        /** {
+            border: 1px solid rgb(0,255,255);
+        }*/
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            border: 3px solid #cccccc;
+            padding: 5px;
+            font-family: Tahoma, sans-serif;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="~/ngApp/app.js"></script>
+    <script src="~/ngApp/controllers/twitter.js"></script>
+    <script src="~/ngApp/filters/filter.js"></script>
+
+</head>
+<body class="container">
+
+    <nav class="row">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/">
+                        <img alt="logo" src="http://www.phonodelsol.com/wp-content/themes/SCRN/images/icn-twitter-intro.png">
+                        <!--<img src="http://mustsharenews.com/wp-content/uploads/2015/06/twitter-logo.png" style="max-height:50px;" />-->
+                    </a>
+                    <p>MOCK TWITTER PAGE</p>
+                </div>
+                @*if you want to search only on click enter, add ng-submit="searchQuery" into the form tag*@
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input ng-model="search" ng-model-options="{debounce:500}" type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </form>
+            </div>
+        </nav>
+    </nav>
+    <ng-view></ng-view>
+</body>
+</html>

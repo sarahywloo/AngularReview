@@ -1,0 +1,83 @@
+﻿
+<div class="row">
+    <select ng-model="month">
+        <option selected="selected">"Select tweets by month"</option>
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+    </select>
+</div>
+
+<!--//Bootstrap for javascript will not work in Angular
+    <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Search by month<span class="caret"></span></button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+        <li>January</li>
+
+    </ul>
+
+</div>-->
+
+<div id="new-tweet" class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <textarea ng-model="newTweet" class="form-control" placeholder="What's happening?"></textarea>
+    </div>
+    <div class="col-md-1">
+        <input class="form-control" type="button" value="+" ng-click="tweetFeed.addTweet(newTweet); newTweet=''"/>
+    </div>
+</div>
+
+<!--so you only see 5 tweets on the page-->
+<div class="row" ng-repeat="tweet in tweetFeed.tweets |filter: {message: search}| selectedMonth: month | limitTo: 5">
+    <div class="col-md-2">
+        <!--MUST use ng-src if we are using angular-->
+        <img ng-src="{{tweet.profilePicture}}" class="img-responsive" style="max-height: 200px" />
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            {{tweet.username | uppercase}}
+        </div>
+        <div class="row" ng-model="tweet.dateCreated">
+            {{tweet.dateCreated | date: 'fullDate'}}
+        </div>
+        <div class="row">
+            {{tweet.message}}
+        </div>
+        <div class="row">
+            <div class="col-md-offset-10 col-md-1 btn btn-primary" ng-click="tweetFeed.incrementLikes(tweet)">
+                Like {{tweet.likes}}
+            </div>
+            <div class="col-md-1 btn btn-warning" 
+                 ng-show="tweet.likes > 10"
+                 ng-click="tweetFeed.retweet(tweet)">
+                Re-tweet
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        TWEETS
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        TWEETS
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        TWEETS
+    </div>
+</div>
