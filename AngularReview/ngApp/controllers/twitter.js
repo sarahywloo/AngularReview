@@ -48,3 +48,4 @@ var AngularReview;
         Controllers.TwitterController = TwitterController;
     })(Controllers = AngularReview.Controllers || (AngularReview.Controllers = {}));
 })(AngularReview || (AngularReview = {}));
+//# sourceMappingURL=twitter.js.map

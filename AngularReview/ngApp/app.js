@@ -11,3 +11,4 @@ var AngularReview;
         });
     });
 })(AngularReview || (AngularReview = {}));
+//# sourceMappingURL=app.js.map

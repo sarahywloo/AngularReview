@@ -17,3 +17,4 @@ var AngularReview;
         angular.module('AngularReview').filter('selectedMonth', selectedMonth);
     })(Filters = AngularReview.Filters || (AngularReview.Filters = {}));
 })(AngularReview || (AngularReview = {}));
+//# sourceMappingURL=filter.js.map
